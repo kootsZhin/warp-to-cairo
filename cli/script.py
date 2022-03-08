@@ -1,12 +1,14 @@
 from datetime import datetime as dt
 
+import click
 import json
 import os
 
-from src.constants import *
-from src.processor import Processor
+from cli.utils.constants import *
+from cli.utils.processor import Processor
 
-def main():
+@click.command()
+def convert():
     START_TIME = dt.utcnow()
 
     for file in os.listdir(INPUTS_PATH):
@@ -19,7 +21,7 @@ def main():
     TIME_CONSUMED = END_TIME - START_TIME
     FILE_COUNT = len(os.listdir(INPUTS_PATH))
 
-    print(f"Successfully converted {FILE_COUNT} files ({TIME_CONSUMED})")
+    click.echo(f"Successfully converted {FILE_COUNT} files ({TIME_CONSUMED})")
 
 if __name__ == "__main__":
-    main()
+    convert()

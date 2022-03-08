@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+click = "*"
+convert = {editable = true, path = "."}
+warp-to-cairo = {editable = true, path = "."}
 
 [dev-packages]
 
